@@ -1,0 +1,6 @@
+{
+  "name": "Travel Bee",
+  "description": "A polished, offline-friendly slow travel blog and CMS dashboard with interactive markdown editing, local draft state persistence, search metrics, and elegant visual typography.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

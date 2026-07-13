@@ -1,0 +1,46 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Helper to check if user is signed in
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    // Settings collection
+    match /settings/{document} {
+      allow read: if true;
+      allow write: if true; // In development, let anyone configure. We can restrict later.
+    }
+
+    // Posts collection
+    match /posts/{post} {
+      allow read: if true;
+      allow write: if true; // Let everyone write for testing, or restrict if auth is active.
+    }
+
+    // Authors/Users collection
+    match /authors/{author} {
+      allow read: if true;
+      allow write: if true;
+    }
+
+    // Media library collection
+    match /media/{mediaId} {
+      allow read: if true;
+      allow write: if true;
+    }
+
+    // Revisions collection
+    match /revisions/{revisionId} {
+      allow read: if true;
+      allow write: if true;
+    }
+
+    // Comments collection
+    match /comments/{commentId} {
+      allow read: if true;
+      allow create: if true;
+      allow update, delete: if true;
+    }
+  }
+}
